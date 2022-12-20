@@ -8,6 +8,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row } from "react-bootstrap";
 import Pokemon from "./components/Pokemon.jsx";
+import Multiplicator from "./components/Multiplicator.jsx";
 
 function App() {
   let name = "Pepe";
@@ -50,6 +51,9 @@ function App() {
         <Row>
           <Pokemon />
         </Row>
+      </Container>
+      <Container>
+        <Multiplicator />
       </Container>
     </div>
   );
