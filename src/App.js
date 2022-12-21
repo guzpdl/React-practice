@@ -9,12 +9,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row } from "react-bootstrap";
 import Pokemon from "./components/Pokemon.jsx";
 import Multiplicator from "./components/Multiplicator.jsx";
+import Products from "./components/Products.jsx";
+import Cart from "./components/Cart.jsx";
+import { useState } from "react";
 
 function App() {
-  let name = "Pepe";
+  // let name = "Pepe";
+
+  const [cart, setCart] = useState([]);
+
   return (
     <div className="App">
-      <Welcome name={name} />
+      {/* <Welcome name={name} />
       <Title />
       <Subtitle />
       <Description name={name} />
@@ -30,7 +36,7 @@ function App() {
             rating="bueno"
           />
           <Cards
-            name={"Pito peludo"}
+            name={"Batman"}
             year={2019}
             image={
               "https://i.pinimg.com/originals/92/b4/a6/92b4a64312055fc4ade1e6254835d6bf.png"
@@ -38,7 +44,7 @@ function App() {
             rating="No la vi"
           />
           <Cards
-            name={"Ganaron la 3ra"}
+            name={"Batman y Robin"}
             year={2022}
             image={
               "https://upload.wikimedia.org/wikipedia/en/3/37/Batman_%26_Robin_poster.jpg"
@@ -54,6 +60,12 @@ function App() {
       </Container>
       <Container>
         <Multiplicator />
+      </Container> */}
+      <Container>
+        <Row>
+          <Products cart={cart} setCart={setCart} />
+          <Cart cart={cart} setCart={setCart} />
+        </Row>
       </Container>
     </div>
   );
