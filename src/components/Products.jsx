@@ -1,6 +1,7 @@
 import React from "react";
 import groceries from "../data/groceries";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Badge } from "react-bootstrap";
 
 const Products = ({ cart, setCart }) => {
   return (
@@ -16,6 +17,9 @@ const Products = ({ cart, setCart }) => {
                 setCart([...cart, groceryInfo]);
               }}
             >
+              <Badge bg="primary" pill>
+                +
+              </Badge>{" "}
               {groceryInfo.name} (${groceryInfo.unitPrice} c/u)
             </ListGroup.Item>
           );
