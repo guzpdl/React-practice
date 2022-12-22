@@ -26,7 +26,8 @@ const Cart = ({ cart, setCart }) => {
               <Badge bg="primary" pill>
                 -
               </Badge>{" "}
-              {groceryInfo.name} (${groceryInfo.unitPrice} c/u)
+              {groceryInfo.name}, Qty: {groceryInfo.quantity} - ($
+              {groceryInfo.unitPrice} c/u) {groceryInfo.test}
             </ListGroup.Item>
           );
         })}

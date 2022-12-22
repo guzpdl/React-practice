@@ -17,7 +17,17 @@ const Products = ({ cart, setCart }) => {
               action
               key={groceryInfo.id}
               onClick={() => {
-                setCart([...cart, groceryInfo]);
+                const itemInCart = cart.filter((item) => {
+                  return item.name === groceryInfo.name;
+                });
+                if (itemInCart.length > 0) {
+                  groceryInfo.quantity += 1;
+                  const newCart = [...cart];
+                  setCart(newCart);
+                } else {
+                  groceryInfo.quantity = 1;
+                  setCart([...cart, groceryInfo]);
+                }
               }}
             >
               <Badge bg="primary" pill>
