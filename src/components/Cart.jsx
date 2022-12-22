@@ -13,11 +13,12 @@ const Cart = ({ cart, setCart }) => {
 
   return (
     <div style={{ width: "40%" }}>
-      <h1>Shopping cart</h1>
+      <h1 style={{ display: "flex", justifyContent: "left" }}>Shopping cart</h1>
       <ListGroup style={{ width: "18rem" }}>
         {cart.map((groceryInfo, index) => {
           return (
             <ListGroup.Item
+              style={{ display: "flex", justifyContent: "left" }}
               action
               key={index}
               onClick={() => handleRemoveItem(index)}
