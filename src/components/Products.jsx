@@ -3,7 +3,7 @@ import groceries from "../data/groceries";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Badge } from "react-bootstrap";
 
-const Products = ({ cart, setCart }) => {
+const Products = ({ cart, setCart, total, setTotal }) => {
   return (
     <div style={{ width: "40%" }}>
       <h1 style={{ display: "flex", justifyContent: "left" }}>
@@ -24,9 +24,11 @@ const Products = ({ cart, setCart }) => {
                   groceryInfo.quantity += 1;
                   const newCart = [...cart];
                   setCart(newCart);
+                  setTotal(total + groceryInfo.unitPrice);
                 } else {
                   groceryInfo.quantity = 1;
                   setCart([...cart, groceryInfo]);
+                  setTotal(total + groceryInfo.unitPrice);
                 }
               }}
             >

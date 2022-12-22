@@ -17,6 +17,7 @@ function App() {
   // let name = "Pepe";
 
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
 
   return (
     <div className="App">
@@ -63,8 +64,18 @@ function App() {
       </Container> */}
       <Container>
         <Row>
-          <Products cart={cart} setCart={setCart} />
-          <Cart cart={cart} setCart={setCart} />
+          <Products
+            cart={cart}
+            setCart={setCart}
+            total={total}
+            setTotal={setTotal}
+          />
+          <Cart
+            cart={cart}
+            setCart={setCart}
+            total={total}
+            setTotal={setTotal}
+          />
         </Row>
       </Container>
     </div>

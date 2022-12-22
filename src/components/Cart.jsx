@@ -2,14 +2,20 @@ import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Badge } from "react-bootstrap";
 
-const Cart = ({ cart, setCart }) => {
-  const handleRemoveItem = (index) => {
-    const temporary = [...cart];
-    temporary.splice(index, 1);
-    setCart(temporary);
-  };
+const Cart = ({ cart, setCart, total, setTotal }) => {
+  const handleRemoveItem = (groceryInfo, index) => {
+    setTotal(total - groceryInfo.unitPrice);
 
-  // const getQuantity = (cart)
+    if (groceryInfo.quantity === 1) {
+      const temporary = [...cart];
+      temporary.splice(index, 1);
+      setCart(temporary);
+    } else {
+      groceryInfo.quantity -= 1;
+      const newCart = [...cart];
+      setCart(newCart);
+    }
+  };
 
   return (
     <div style={{ width: "40%" }}>
@@ -21,17 +27,21 @@ const Cart = ({ cart, setCart }) => {
               style={{ display: "flex", justifyContent: "left" }}
               action
               key={index}
-              onClick={() => handleRemoveItem(index)}
+              onClick={() => handleRemoveItem(groceryInfo, index)}
             >
               <Badge bg="primary" pill>
                 -
               </Badge>{" "}
               {groceryInfo.name}, Qty: {groceryInfo.quantity} - ($
-              {groceryInfo.unitPrice} c/u) {groceryInfo.test}
+              {groceryInfo.unitPrice} c/u)
             </ListGroup.Item>
           );
         })}
       </ListGroup>
+
+      <h3 style={{ display: "flex", justifyContent: "left" }}>
+        Total : {total}
+      </h3>
     </div>
   );
 };
